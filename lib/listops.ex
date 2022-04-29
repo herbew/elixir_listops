@@ -41,5 +41,6 @@ defmodule ListOps do
 	    [] -> list
 	    [head|tail] -> append([funct.(head)], map(tail, funct))
 	  end
+	end
   
 end
