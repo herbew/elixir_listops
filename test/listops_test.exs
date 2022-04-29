@@ -1,21 +1,21 @@
 defmodule ListOpsTest do
     use ExUnit.Case
 	
-	describe "count" do
+	describe "1. .count" do
 	    # @tag :pending
-	    test "empty list" do
+	    test "1.1. The empty list" do
 	      assert ListOps.count([]) == 0
 	    end#
 	
 	    @tag :pending
-	    test "normal list" do
-	      assert ListOps.count([1, 2, 3, 4]) == 4
+	    test "1.2. The normal list" do
+	      assert ListOps.count([0, 1, 2]) == 3
 	    end
 	
 	    @tag :pending
 	    @tag :slow
-	    test "huge list" do
-	      assert ListOps.count(Enum.to_list(1..1_000_000)) == 1_000_000
+	    test "1.3. The huge list" do
+	      assert ListOps.count(Enum.to_list(1..10000000)) == 10000000
 	    end
 	end #describe "count" do
 	
