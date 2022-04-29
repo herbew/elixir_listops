@@ -69,6 +69,24 @@ defmodule ListOpsTest do
 		test "3.4. The huge list" do
 		  assert ListOps.reverse(Enum.to_list(1..10000)) == Enum.to_list(10000..1)
 		end
-	end
+	end #describe "3.reverse" do
+	
+	describe "4.map" do
+		@tag :pending
+		test "4.1. The empty list" do
+		  assert ListOps.map([], &(&1 + 1)) == []
+		end
+		
+		@tag :pending
+		test "4.2. The normal list" do
+		  assert ListOps.map([0, 1, 2, 3], &(&1 + 1)) == [1, 2, 3, 4]
+		end
+		
+		@tag :pending
+		@tag :slow
+		test "4.3. The huge list" do
+		  assert ListOps.map(Enum.to_list(1..10000), &(&1 + 1)) == Enum.to_list(2..10001)
+		end
+	end #describe "4.map" do
 	
 end

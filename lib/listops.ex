@@ -33,5 +33,13 @@ defmodule ListOps do
 	    [head|tail] -> append(reverse(tail), [head])
 	  end
 	end
+	
+	# map of list
+	@spec map(list, (any -> any)) :: list
+	def map(list, funct) do
+	  case list do
+	    [] -> list
+	    [head|tail] -> append([funct.(head)], map(tail, funct))
+	  end
   
 end
