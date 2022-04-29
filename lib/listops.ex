@@ -55,5 +55,25 @@ defmodule ListOps do
 	      end
 	  end
 	end
-  
+  	
+  	@type accm :: any
+	# foldl of list
+  	@spec foldl(list, accm, (any, accm -> accm)) :: accm
+	def foldl(list, accm, funct) do
+		case list do
+		  [] -> accm
+		  [head|tail] -> foldl(head, funct.(head, accm), funct)
+		end
+	end
+	
+	
+	# foldr of list
+	@spec foldr(list, accm, (any, accm -> accm)) :: accm
+	def foldr(list, accm, funct) do
+		case list do
+			[] -> accm
+			[head|tail] -> funct.(head, foldr(tail, accm, funct))
+		end
+	end
+	
 end
