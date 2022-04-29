@@ -16,6 +16,13 @@ defmodule ListOps do
 	    end
   	end
 	
-	
+	# append of list
+	@spec append(list, list) :: list
+	def append(list_a, list_b) do
+	  case list_a do
+	    [] -> list_b
+	    [head|tail] -> [head|append(tail, list_b)]
+	  end
+	end
   
 end
