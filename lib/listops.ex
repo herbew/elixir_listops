@@ -62,7 +62,7 @@ defmodule ListOps do
 	def foldl(list, accm, funct) do
 		case list do
 		  [] -> accm
-		  [head|tail] -> foldl(head, funct.(head, accm), funct)
+		  [head|tail] -> foldl(tail, funct.(head, accm), funct)
 		end
 	end
 	

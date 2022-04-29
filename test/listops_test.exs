@@ -122,12 +122,12 @@ defmodule ListOpsTest do
 		
 		@tag :pending
 		test "6.2. The direction independent function applied to non-empty list" do
-		  assert ListOps.foldl([1, 2, 3, 4], 4, &(&1 + &2)) == 12
+		   assert ListOps.foldl([0, 1, 2], 8, &(&1 + &2)) == 11
 		end
 		
 		@tag :pending
 		test "6.3. The direction dependent function applied to non-empty list" do
-		  assert ListOps.foldl([1, 2, 3, 4], 24, &(&1 / &2)) == 64
+		  assert ListOps.foldl([3, 4], 12, &(&1 / &2)) == 16
 		end
 		
 		@tag :pending
@@ -141,17 +141,17 @@ defmodule ListOpsTest do
 	describe "7.foldr" do
 		@tag :pending
 		test "7.1. The empty list" do
-		  assert ListOps.foldr([], 2, &(&1 * &2)) == 2
+		  assert ListOps.foldr([], 5, &(&1 * &2))
 		end
 		
 		@tag :pending
 		test "7.2. The direction independent function applied to non-empty list" do
-		  assert ListOps.foldr([1, 2, 3, 4], 5, &(&1 + &2)) == 15
+		  assert ListOps.foldr([1, 2, 3, 4], 8, &(&1 + &2)) == 18
 		end
 		
 		@tag :pending
 		test "7.3. The direction dependent function applied to non-empty list" do
-		  assert ListOps.foldr([1, 2, 3, 4], 24, &(&1 / &2)) == 9
+		  assert ListOps.foldr([1, 2, 3, 4], 16, &(&1 / &2)) == 6
 		end
 		
 		@tag :pending
