@@ -85,4 +85,17 @@ defmodule ListOps do
 		end
 	end
 	
+	# concat of list
+	@spec concat([[any]]) :: [any]
+	def concat(list) do
+		case list do
+			[] -> list
+			[head|tail] -> 
+			    cond do
+				    is_list(head) -> append(head, concat(tail))
+				    true -> [head|concat(tail)]
+			    end
+		end
+	end
+	
 end

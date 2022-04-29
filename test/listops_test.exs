@@ -185,4 +185,27 @@ defmodule ListOpsTest do
 		           Enum.reduce(Enum.to_list(1..10000), 0, &(&1 + &2))
 		end
 	end #describe "8.reduce" do
+	
+	describe "9.concat" do
+		@tag :pending
+		test "9.1. The empty list of lists" do
+		  assert ListOps.concat([]) == []
+		end
+		
+		@tag :pending
+		test "9.2. The normal list of lists" do
+		  assert ListOps.concat([[1], [], [2,3], [4, 5, 6]]) == [1, 2, 3, 4, 5, 6]
+		end
+		
+		@tag :pending
+		test "9.3. The list of nested lists" do
+		  assert ListOps.concat([[[1], [2]], [[3]], [[]], [[[4, 5, 6]]]]) == [[1], [2], [3], [], [[4, 5, 6]]]
+		end
+		
+		@tag :pending
+		@tag :slow
+		test "9.4. The huge list of small lists" do
+		  assert ListOps.concat(Enum.map(1..100000, &[&1])) == Enum.to_list(1..100000)
+		end
+	end #describe "9.concat" do
 end
