@@ -162,4 +162,27 @@ defmodule ListOpsTest do
 		end
 	end #describe "7.foldr" do
 	
+	describe "8.reduce" do
+		@tag :pending
+		test "8.1. The empty list" do
+		  assert ListOps.reduce([], 3, &(&1 + &2)) == 3
+		end
+		
+		@tag :pending
+		test "8.2. The direction independent function applied to non-empty list" do
+		   assert ListOps.reduce([0, 1, 2], 8, &(&1 + &2)) == 11
+		end
+		
+		@tag :pending
+		test "8.3. The direction dependent function applied to non-empty list" do
+		  assert ListOps.reduce([3, 4], 12, &(&1 / &2)) == 16
+		end
+		
+		@tag :pending
+		@tag :slow
+		test "huge list" do
+		  assert ListOps.reduce(Enum.to_list(1..10000), 0, &(&1 + &2)) ==
+		           Enum.reduce(Enum.to_list(1..10000), 0, &(&1 + &2))
+		end
+	end #describe "8.reduce" do
 end

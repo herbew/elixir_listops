@@ -76,4 +76,13 @@ defmodule ListOps do
 		end
 	end
 	
+	# reduce of list
+  	@spec reduce(list, accm, (any, accm -> accm)) :: accm
+	def reduce(list, accm, funct) do
+		case list do
+		  [] -> accm
+		  [head|tail] -> reduce(tail, funct.(head, accm), funct)
+		end
+	end
+	
 end
