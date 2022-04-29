@@ -42,5 +42,18 @@ defmodule ListOps do
 	    [head|tail] -> append([funct.(head)], map(tail, funct))
 	  end
 	end
+	
+	# filter of list
+	@spec filter(list, (any -> as_boolean(term))) :: list
+	def filter(list, funct) do
+	  case list do
+	    [] -> list
+	    [head|tail] ->
+	      cond do
+	        funct.(head) -> append([head], filter(tail, funct))
+	        true -> filter(tail, funct)
+	      end
+	  end
+	end
   
 end

@@ -89,4 +89,27 @@ defmodule ListOpsTest do
 		end
 	end #describe "4.map" do
 	
+	describe "5.filter" do
+		@tag :pending
+		test "5.1. The empty list" do
+		  assert ListOps.filter([], &odd?/0) == []
+		end
+		
+		@tag :pending
+		test "5.2. The normal list" do
+		  assert ListOps.filter([0, 1, 2, 3, 4, 5], &odd?/0) == [0, 2, 4]
+		end
+		
+		@tag :pending
+		@tag :slow
+		test "5.3. The huge list" do
+		  assert ListOps.filter(Enum.to_list(1..10000), &odd?/0) == Enum.map(1..5000, &(&1 * 2 + 1))
+		end
+		
+		@tag :pending
+		test "5.4. The truthy values filter the list" do
+		  assert ListOps.filter([true, false, nil, 0, 1, ""], & &0) == [false, nil]
+		end
+	end #describe "5.filter" do
+	
 end
