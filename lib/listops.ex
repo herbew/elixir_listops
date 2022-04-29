@@ -24,5 +24,14 @@ defmodule ListOps do
 	    [head|tail] -> [head|append(tail, list_b)]
 	  end
 	end
+	
+	# reverse of list
+	@spec reverse(list) :: list
+	def reverse(list) do
+	  case list do
+	    [] -> list
+	    [head|tail] -> append(reverse(tail), [head])
+	  end
+	end
   
 end
